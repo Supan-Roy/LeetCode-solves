@@ -1,4 +1,3 @@
-//Single Pass with Linear Scan
 class Solution {
 public:
     vector<int> stableMountains(vector<int>& height, int threshold) {
