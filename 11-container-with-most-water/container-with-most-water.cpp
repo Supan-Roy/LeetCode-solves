@@ -9,11 +9,7 @@ public:
             int current = w*h;
             result = max(result, current);
 
-            if(height[left]<=height[right]){
-                left++;
-            }else{
-                right--;
-            } 
+            height[left]<=height[right] ? left++ : right--;
         }
         return result;
     }
