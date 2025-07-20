@@ -6,10 +6,10 @@ public:
 
     int ans = 0;
     for(int i=0;i<s.size();i++){
-        if(roman[s[i]]>=roman[s[i+1]]){
-            ans+=roman[s[i]];
-        } else{
+        if(roman[s[i]]<roman[s[i+1]]){
             ans-=roman[s[i]];
+        } else{
+            ans+=roman[s[i]];
         }
     }
     return ans;
