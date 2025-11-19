@@ -2,13 +2,11 @@ class Solution {
 public:
     int countKDifference(vector<int>& nums, int k) {
         int count=0;
-        for(int i=0;i<nums.size()-1;i++){
-            for(int j=i+1;j<nums.size();j++){
-                if(abs(nums[i]-nums[j])==k){
-                    count++;
-                }
-            }
+        unordered_map<int, int>freq;
+        for(int x:nums){
+            count+=freq[x-k]+freq[x+k];
+            freq[x]++;
         }
         return count;
     }
-};
+};   // O(n)
