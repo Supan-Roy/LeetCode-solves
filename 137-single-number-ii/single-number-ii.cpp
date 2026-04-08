@@ -1,15 +1,18 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        for(int i=0;i<nums.size();i++){
-            int count = 0;
-            for(int j=0;j<nums.size();j++){
-                if(nums[i] == nums[j]) count++;
+        int ans = 0;
+        for(int i=0;i<32;i++){
+            int sum=0;
+            for(int num:nums){
+                if(num & (1 << i)){
+                    sum++;
+                }
             }
-            if(count==1){
-                return nums[i];
+            if(sum%3 != 0){
+                ans |= (1 << i);
             }
         }
-        return -1;
+        return ans;
     }
 };
