@@ -7,21 +7,21 @@ public:
         }
         return maxx;
     }
-    int calc_ck(vector<int>& nums, int ck){
-        int ck_point = 0;
+    int sum(vector<int>& nums, int div){
+        int total = 0;
         for(int i=0;i<nums.size();i++){
-            ck_point += (nums[i]+ck-1)/ck;
+            total += (nums[i]+div-1)/div;
         }
-        return ck_point;
+        return total;
     }
 
     int smallestDivisor(vector<int>& nums, int threshold) {
         int low=1, high=find_max(nums);
         while(low<=high){
-            int mid=(low+high)/2;
-            int ck_point=calc_ck(nums, mid);
+            int mid=low+(high-low)/2;
+            int total=sum(nums, mid);
 
-            if(ck_point<=threshold){
+            if(total<=threshold){
                 high=mid-1;
             }
             else {
